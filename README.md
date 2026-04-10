@@ -68,6 +68,7 @@ Copy, adapt, and test configurations in your own environment.
 
 ## Repository Structure
 
+```
 syslog-book/
 │
 ├── README.md
@@ -77,6 +78,7 @@ syslog-book/
 ├── datasets/
 ├── benchmarks/
 └── diagrams/
+```
 
 ### Key Areas
 
