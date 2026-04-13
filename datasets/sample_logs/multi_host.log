@@ -1,0 +1,38 @@
+Jan 12 14:00:00 web01 sshd[3000]: Accepted password for user1 from 192.168.1.10 port 22 ssh2
+Jan 12 14:00:00 db01 mysqld[4000]: Connection established id=5001 user=app
+Jan 12 14:00:01 web02 nginx: 192.168.1.20 - - [12/Jan/2026:14:00:01 +0000] "GET /index.html HTTP/1.1" 200 1024
+Jan 12 14:00:01 fw01 firewall: DENY TCP src=10.0.0.5 dst=192.168.1.10 dport=22
+Jan 12 14:00:02 app01 app[5000]: INFO user login user_id=123
+Jan 12 14:00:02 web01 sshd[3001]: Failed password for root from 10.0.0.1 port 22 ssh2
+
+Jan 12 14:00:03 db01 mysqld[4001]: Query executed duration=45ms
+Jan 12 14:00:03 web02 nginx: 192.168.1.21 - - [12/Jan/2026:14:00:03 +0000] "POST /login HTTP/1.1" 401 512
+Jan 12 14:00:04 fw01 firewall: ALLOW TCP src=192.168.1.10 dst=192.168.1.20 dport=443
+Jan 12 14:00:04 app02 app[5001]: WARN slow response endpoint=/api/data duration=300ms
+Jan 12 14:00:05 web03 sshd[3002]: Accepted publickey for user2 from 192.168.1.30 port 2222 ssh2
+
+Jan 12 14:00:06 db02 mysqld[4002]: Access denied for user 'root'@'localhost'
+Jan 12 14:00:06 web01 nginx: 192.168.1.22 - - [12/Jan/2026:14:00:06 +0000] "GET /dashboard HTTP/1.1" 302 256
+Jan 12 14:00:07 fw02 firewall: DENY UDP src=10.0.0.8 dst=192.168.1.15 dport=53
+Jan 12 14:00:07 app01 app[5000]: ERROR database timeout host=db02
+Jan 12 14:00:08 web02 sshd[3003]: Received disconnect from 192.168.1.40
+
+Jan 12 14:00:09 db01 mysqld[4003]: Connection closed id=5001
+Jan 12 14:00:09 web03 nginx: 192.168.1.23 - - [12/Jan/2026:14:00:09 +0000] "GET /api HTTP/1.1" 500 128
+Jan 12 14:00:10 fw01 firewall: DENY TCP src=10.0.0.9 dst=192.168.1.11 dport=3389
+Jan 12 14:00:10 app02 app[5001]: INFO job completed job_id=9001
+Jan 12 14:00:11 web01 sshd[3004]: pam_unix(sshd:session): session closed for user user1
+
+# --- slight time skew between hosts ---
+
+Jan 12 13:59:59 db02 mysqld[4004]: Slow query detected duration=1200ms
+Jan 12 14:00:12 web02 nginx: 192.168.1.24 - - [12/Jan/2026:14:00:12 +0000] "GET /health HTTP/1.1" 200 64
+Jan 12 14:00:08 fw02 firewall: ALLOW TCP src=192.168.1.15 dst=192.168.1.25 dport=80
+
+# --- mixed severity and roles ---
+
+Jan 12 14:00:13 app01 app[5000]: INFO heartbeat ok
+Jan 12 14:00:13 app02 app[5001]: WARN cache miss rate high
+Jan 12 14:00:14 web03 sshd[3005]: Failed password for invalid user admin from 10.0.0.2 port 22 ssh2
+Jan 12 14:00:14 db01 mysqld[4005]: ERROR replication lag detected
+Jan 12 14:00:15 fw01 firewall: DENY ICMP src=10.0.0.10 dst=192.168.1.12
