@@ -1,0 +1,38 @@
+Jan 12 16:00:05 order01 app[9000]: INFO request start id=4000001
+Jan 12 16:00:06 order01 app[9000]: INFO request processing id=4000001
+Jan 12 16:00:07 order01 app[9000]: INFO request complete id=4000001 status=200
+
+# --- late arrival (should have come earlier) ---
+Jan 12 16:00:04 order01 app[9000]: INFO request received id=4000001
+
+# --- normal sequence ---
+Jan 12 16:00:10 order01 app[9000]: INFO request start id=4000002
+Jan 12 16:00:11 order01 app[9000]: INFO request processing id=4000002
+
+# --- delayed completion ---
+Jan 12 16:00:15 order01 app[9000]: INFO request complete id=4000002 status=200
+
+# --- interleaved out-of-order ---
+Jan 12 16:00:20 order01 app[9000]: INFO request start id=4000003
+Jan 12 16:00:18 order01 app[9000]: INFO request received id=4000003
+Jan 12 16:00:21 order01 app[9000]: INFO request processing id=4000003
+Jan 12 16:00:19 order01 app[9000]: INFO authentication complete id=4000003
+Jan 12 16:00:22 order01 app[9000]: INFO request complete id=4000003 status=200
+
+# --- multiple requests overlapping ---
+Jan 12 16:00:30 order01 app[9000]: INFO request start id=4000004
+Jan 12 16:00:31 order01 app[9000]: INFO request start id=4000005
+Jan 12 16:00:29 order01 app[9000]: INFO request received id=4000004
+Jan 12 16:00:32 order01 app[9000]: INFO request processing id=4000005
+Jan 12 16:00:33 order01 app[9000]: INFO request processing id=4000004
+Jan 12 16:00:28 order01 app[9000]: INFO request received id=4000005
+
+# --- delayed error arrives late ---
+Jan 12 16:00:40 order01 app[9000]: ERROR database timeout id=4000006
+Jan 12 16:00:35 order01 app[9000]: INFO request start id=4000006
+Jan 12 16:00:41 order01 app[9000]: INFO retry request id=4000006
+
+# --- control (correct order) ---
+Jan 12 16:00:50 order01 app[9000]: INFO request start id=4000007
+Jan 12 16:00:51 order01 app[9000]: INFO request processing id=4000007
+Jan 12 16:00:52 order01 app[9000]: INFO request complete id=4000007 status=200
