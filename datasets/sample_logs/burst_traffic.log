@@ -1,0 +1,26 @@
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000001
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000002
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000003
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000004
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000005
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000006
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000007
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000008
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000009
+Jan 12 12:00:00 burst01 app[7000]: INFO request received id=2000010
+
+Jan 12 12:00:00 burst01 app[7000]: WARN queue backlog increasing size=1000
+Jan 12 12:00:00 burst01 app[7000]: WARN queue backlog increasing size=5000
+Jan 12 12:00:00 burst01 app[7000]: WARN queue backlog increasing size=10000
+
+Jan 12 12:00:00 burst01 app[7000]: ERROR downstream unavailable retrying=true
+Jan 12 12:00:00 burst01 app[7000]: ERROR downstream unavailable retrying=true
+Jan 12 12:00:00 burst01 app[7000]: ERROR downstream unavailable retrying=true
+
+# --- burst ends, system stabilizes ---
+
+Jan 12 12:00:05 burst01 app[7000]: INFO request processed id=2000011 latency=120ms
+Jan 12 12:00:06 burst01 app[7000]: INFO request processed id=2000012 latency=95ms
+Jan 12 12:00:07 burst01 app[7000]: INFO request processed id=2000013 latency=80ms
+Jan 12 12:00:08 burst01 app[7000]: INFO request processed id=2000014 latency=60ms
+Jan 12 12:00:09 burst01 app[7000]: INFO request processed id=2000015 latency=40ms
