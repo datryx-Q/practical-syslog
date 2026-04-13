@@ -1,0 +1,33 @@
+Jan 12 15:00:00 dup01 app[8000]: INFO request processed id=3000001 status=200
+Jan 12 15:00:00 dup01 app[8000]: INFO request processed id=3000002 status=200
+Jan 12 15:00:00 dup01 app[8000]: INFO request processed id=3000003 status=200
+
+# --- duplicate burst (exact duplicates) ---
+Jan 12 15:00:00 dup01 app[8000]: INFO request processed id=3000001 status=200
+Jan 12 15:00:00 dup01 app[8000]: INFO request processed id=3000002 status=200
+Jan 12 15:00:00 dup01 app[8000]: INFO request processed id=3000003 status=200
+
+# --- slight variation (timestamp drift) ---
+Jan 12 15:00:01 dup01 app[8000]: INFO request processed id=3000001 status=200
+Jan 12 15:00:01 dup01 app[8000]: INFO request processed id=3000002 status=200
+
+# --- retry pattern after failure ---
+Jan 12 15:00:02 dup01 app[8000]: ERROR downstream timeout id=3000004 retry=true
+Jan 12 15:00:02 dup01 app[8000]: ERROR downstream timeout id=3000004 retry=true
+
+# --- replay after recovery ---
+Jan 12 15:00:05 dup01 app[8000]: INFO request processed id=3000004 status=200
+Jan 12 15:00:05 dup01 app[8000]: INFO request processed id=3000004 status=200
+
+# --- mixed duplicates with new data ---
+Jan 12 15:00:06 dup01 app[8000]: INFO request processed id=3000005 status=200
+Jan 12 15:00:06 dup01 app[8000]: INFO request processed id=3000006 status=200
+Jan 12 15:00:06 dup01 app[8000]: INFO request processed id=3000005 status=200
+
+# --- out-of-order duplicate ---
+Jan 12 15:00:08 dup01 app[8000]: INFO request processed id=3000007 status=200
+Jan 12 15:00:07 dup01 app[8000]: INFO request processed id=3000007 status=200
+
+# --- control (unique messages) ---
+Jan 12 15:00:09 dup01 app[8000]: INFO request processed id=3000008 status=200
+Jan 12 15:00:10 dup01 app[8000]: INFO request processed id=3000009 status=200
