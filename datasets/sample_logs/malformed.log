@@ -1,0 +1,55 @@
+Jan 12 13:00:00 bad01 sshd[2000]: Accepted password for user1 from 192.168.1.10 port 22 ssh2
+
+# --- missing hostname ---
+Jan 12 13:00:01 sshd[2001]: Failed password for root from 10.0.0.1 port 22 ssh2
+
+# --- missing program ---
+Jan 12 13:00:02 bad01 : message with no program name
+
+# --- missing PID ---
+Jan 12 13:00:03 bad01 sshd: missing pid field
+
+# --- non-numeric PID ---
+Jan 12 13:00:04 bad01 sshd[abc]: invalid pid format
+
+# --- empty message ---
+Jan 12 13:00:05 bad01 sshd[2005]:
+
+# --- extra spaces / weird formatting ---
+Jan 12 13:00:06    bad01    sshd[2006]:    irregular spacing detected
+
+# --- missing timestamp ---
+bad01 sshd[2007]: no timestamp present
+
+# --- completely invalid line ---
+this is not a syslog message at all
+
+# --- partial timestamp ---
+Jan 12 bad01 sshd[2008]: incomplete timestamp
+
+# --- wrong date format ---
+2026-01-12 13:00:09 bad01 sshd[2009]: ISO timestamp instead of syslog
+
+# --- truncated message ---
+Jan 12 13:00:10 bad01 sshd[2010]: Failed password for
+
+# --- unexpected delimiter ---
+Jan 12 13:00:11 bad01 sshd[2011] - Failed password using dash instead of colon
+
+# --- embedded JSON (mixed format) ---
+Jan 12 13:00:12 bad01 app[3000]: {"event":"login","user":"user1","status":"success"}
+
+# --- binary-like garbage ---
+Jan 12 13:00:13 bad01 app[3001]: \x00\x01\x02\xFF corrupted payload
+
+# --- extremely long line ---
+Jan 12 13:00:14 bad01 app[3002]: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+# --- duplicate malformed pattern ---
+Jan 12 13:00:15 bad01 sshd[]: empty pid brackets
+
+# --- swapped fields ---
+sshd bad01 Jan 12 13:00:16 message in wrong order
+
+# --- valid line again (control) ---
+Jan 12 13:00:17 bad01 sshd[2017]: Accepted publickey for user2 from 192.168.1.20 port 2222 ssh2
