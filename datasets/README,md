@@ -1,0 +1,54 @@
+# Datasets
+
+This directory contains intentionally designed log datasets used throughout the labs and examples in this project.
+
+These are not random sample logs. Each dataset is built to simulate a specific real-world condition or failure mode in logging pipelines.
+
+---
+
+## Purpose
+
+Logging systems rarely fail under ideal conditions. They fail under:
+
+- High throughput  
+- Traffic spikes  
+- Bad or malformed data  
+- Distributed environments  
+- Network instability  
+- Delivery retries  
+
+These datasets are designed to reproduce those conditions in a controlled way.
+
+---
+
+## Dataset Overview
+
+### `mixed_syslog.log`
+**Purpose:** Realistic baseline dataset
+
+- Mixed facilities (auth, kernel, app, web, firewall)
+- Multiple formats
+- Some inconsistencies
+
+**Use for:**
+- Initial testing
+- Parsing validation
+- General pipeline behavior
+
+---
+
+### `high_volume.log`
+**Purpose:** Sustained throughput testing
+
+- Consistent message format
+- Sequential IDs for loss detection
+
+**Tests:**
+- Maximum EPS capacity
+- Queue performance
+- Resource utilization (CPU, memory)
+
+**How to scale:**
+```bash
+for i in {1..10000}; do cat high_volume.log; done > high_volume_large.log
+```
