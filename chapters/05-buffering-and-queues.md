@@ -5,7 +5,7 @@ Forwarding moves logs.
 Buffering and queues determine whether those logs survive failure.
 
 Without queues, logging systems are fragile.
-With queues, they become resilient—but only if configured correctly.
+With queues, they become resilient, but only if configured correctly.
 
 ---
 
@@ -60,7 +60,6 @@ Input → Output
 
 Input → Memory Queue → Output
 
-
 - Stored in RAM
 - Very fast
 - Limited capacity
@@ -75,7 +74,6 @@ Input → Memory Queue → Output
 
 Input → Disk Queue → Output
 
-
 - Persisted to disk
 - Survives restarts
 - Slower than memory
@@ -89,7 +87,6 @@ Input → Disk Queue → Output
 ### 4. Linked (Hybrid) Queues
 
 Input → Memory Queue → Disk Spillover → Output
-
 
 - Fast under normal conditions
 - Durable under pressure
@@ -135,15 +132,13 @@ Queues enable retries:
 
 Send → Fail → Retry → Success (or drop)
 
-
 But retries introduce:
 
 - Duplicate messages
 - Delayed delivery
 - Increased load after recovery
 
-This directly leads to:
-> At-least-once delivery semantics
+This directly leads to: At-least-once delivery semantics
 
 ---
 
@@ -186,7 +181,6 @@ Queues interact with backpressure:
 
 Queue fills → Input slows or drops → System stabilizes (or fails)
 
-
 Properly configured:
 - Prevents total system collapse
 
@@ -222,7 +216,7 @@ You must track:
 - Processing latency
 
 Without this:
-> You are blind to failure until it is too late
+You are blind to failure until it is too late
 
 ---
 
