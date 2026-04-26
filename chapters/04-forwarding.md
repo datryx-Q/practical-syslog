@@ -48,7 +48,6 @@ The simplest form of syslog forwarding uses UDP.
 
 Sender → UDP → Receiver
 
-
 ### Characteristics
 
 - No connection required
@@ -61,8 +60,7 @@ Sender → UDP → Receiver
 - No retransmission
 - No visibility into loss
 
-If the receiver is unavailable:
-Messages are silently lost
+If the receiver is unavailable: Messages are silently lost
 
 ---
 
@@ -71,7 +69,6 @@ Messages are silently lost
 TCP introduces connection-based delivery.
 
 Sender → TCP → Receiver
-
 
 ### Characteristics
 
@@ -95,9 +92,7 @@ TCP improves reliability, but introduces:
 ## TLS Forwarding (Secure Transport)
 
 TLS adds encryption on top of TCP.
-
 Sender → TLS (over TCP) → Receiver
-
 
 ### Benefits
 
@@ -120,7 +115,6 @@ A common configuration:
 
 input → action(type="omfwd" target="remote")
 
-
 This forwards logs immediately.
 
 But if the remote system is unavailable:
@@ -135,9 +129,7 @@ Forwarding is unreliable
 
 ## Network Reality
 
-Forwarding assumes a stable network.
-
-Real networks are not stable.
+Forwarding assumes a stable network. Real networks are not stable.
 
 Common issues:
 
@@ -166,7 +158,7 @@ This creates a chain reaction:
 - New messages are dropped
 - System performance degrades
 
-Backpressure is necessary—but dangerous if unmanaged.
+Backpressure is necessary but dangerous if unmanaged.
 
 ---
 
@@ -178,7 +170,7 @@ As volume increases:
 - Connection limits are reached
 - Remote systems become bottlenecks
 
-Forwarding is no longer just transport—it becomes a **distributed systems problem**.
+Forwarding is no longer just transport; it becomes a **distributed systems problem**.
 
 ---
 
@@ -230,7 +222,7 @@ Most forwarding issues come from:
 This is where your examples begin to matter:
 
 - `02-file-to-remote/` demonstrates basic forwarding
-- `burst_traffic.log` exposes spike-related loss
+- `burst_traffic.log` exposes spike related loss
 - `high_volume.log` tests sustained throughput
 - `duplicate_messages.log` shows retry behavior
 
@@ -251,7 +243,7 @@ And distributed systems fail in ways that are:
 
 Forwarding alone is not enough.
 
-To handle failure, you need buffering and queues—mechanisms that absorb disruption instead of dropping data.
+To handle failure, you need buffering and queues mechanisms that absorb disruption instead of dropping data.
 
 ---
 
