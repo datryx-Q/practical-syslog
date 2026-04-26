@@ -5,7 +5,8 @@ Once logs are ingested, they need to go somewhere.
 This is where forwarding begins—and where many logging pipelines start to fail in visible ways.
 
 Forwarding introduces a new dependency:
-> The network
+
+The network
 
 And with it, a new class of problems:
 - Packet loss
