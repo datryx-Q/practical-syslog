@@ -62,7 +62,7 @@ Sender → UDP → Receiver
 - No visibility into loss
 
 If the receiver is unavailable:
-> Messages are silently lost
+Messages are silently lost
 
 ---
 
@@ -129,7 +129,7 @@ But if the remote system is unavailable:
 - TCP: messages block or fail
 
 Without buffering:
-> Forwarding is unreliable
+Forwarding is unreliable
 
 ---
 
@@ -204,7 +204,7 @@ You cannot maximize all three.
 
 ## Common Misconception
 
-> “If I use TCP, my logs are safe.”
+“If I use TCP, my logs are safe.”
 
 Reality:
 - TCP reduces loss
