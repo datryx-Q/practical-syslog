@@ -222,3 +222,62 @@ Under high throughput:
 In many pipelines:
 
 Parsing becomes the bottleneck
+
+# The Cost of Parsing Failure
+When parsing fails:
+
+- Alerts stop firing
+- Dashboards become inaccurate
+- Correlation breaks
+- Incident response slows down
+
+**Worse:**
+- Failures are often not immediately visible
+
+## Defensive Parsing
+Reliable systems assume:
+
+- Logs will be inconsistent
+- Formats will change
+- Data will be malformed
+
+**Defensive strategies include:**
+
+- Fallback rules
+- Dead-letter queues
+- Partial parsing
+- Validation checks
+
+---
+
+## Connection to This Repository
+This chapter connects directly to:
+
+*   `malformed.log`
+*   `mixed_syslog.log`
+*   Parsing examples in `examples/parsing/`
+
+These datasets intentionally expose:
+
+- Parser weaknesses
+- Format inconsistencies
+- Assumptions
+
+> ### Key Insight
+> Parsing is not about making logs perfect.
+> It is about extracting useful structure from imperfect data.
+
+---
+
+## What Comes Next
+Once logs are parsed, systems must scale.
+And scaling introduces entirely new problems:
+
+- Throughput bottlenecks
+- Queue pressure
+- Distributed coordination
+- Operational complexity
+
+### Final Thought
+The most dangerous parsing failures are not the ones that crash.
+They are the ones that quietly produce incorrect data.
