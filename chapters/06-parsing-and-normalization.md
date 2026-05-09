@@ -43,12 +43,13 @@ Jan 12 10:00:00 web01 sshd[1234]: Failed password for root
 
 Becomes:
 
-Field	Value
-timestamp	Jan 12 10:00:00
-hostname	web01
-program	sshd
-pid	1234
-message	Failed password for root
+| Field     | Value                    |
+|-----------|--------------------------|
+| timestamp | Jan 12 10:00:00         |
+| hostname  | web01                   |
+| program   | sshd                    |
+| pid       | 1234                    |
+| message   | Failed password for root |
 
 This enables:
 
