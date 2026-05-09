@@ -64,10 +64,12 @@ Normalization standardizes fields across different log formats.
 
 Example:
 
+```markdown
 | Vendor A |    Vendor B | Normalized |
 | src_ip   | source    | source_ip  |
 | user     | username  | user       |
 | sev      | priority  | severity   |
+```
 
 Without normalization:
 
