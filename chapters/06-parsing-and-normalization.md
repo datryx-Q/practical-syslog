@@ -27,6 +27,9 @@ Jan 12 10:00:00 web01 sshd[1234]: Failed password for root
 2026-01-12T10:00:00Z firewall01 action=deny src=10.0.0.1
 {"timestamp":"2026-01-12T10:00:00Z","event":"login"}
 ```
+All three represent events.
+
+None share the same structure.
 
 ## What Parsing Does
 
