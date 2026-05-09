@@ -83,8 +83,7 @@ Most parsing systems assume: Logs are predictable
 Reality:
 
 - Formats change
-- Ven
-- dors violate standards
+- Vendors violate standards
 - Applications emit inconsistent data
 - Developers modify log structures without warning
 
