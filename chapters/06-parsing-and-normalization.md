@@ -43,7 +43,6 @@ Jan 12 10:00:00 web01 sshd[1234]: Failed password for root
 
 Becomes:
 
-```markdown
 | Field     | Value                    |
 |-----------|--------------------------|
 | timestamp | Jan 12 10:00:00         |
@@ -51,7 +50,6 @@ Becomes:
 | program   | sshd                    |
 | pid       | 1234                    |
 | message   | Failed password for root |
-```
 
 This enables:
 
@@ -66,12 +64,10 @@ Normalization standardizes fields across different log formats.
 
 Example:
 
-```markdown
 Vendor A |	Vendor B | Normalized
 src_ip | source | source_ip
 user | username | user
 sev | priority | severity
-```
 
 Without normalization:
 
