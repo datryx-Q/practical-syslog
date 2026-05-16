@@ -97,8 +97,7 @@ Symptoms:
 - Message drops
 - CPU spikes
 
-The dangerous part:
-> Systems often appear operational while silently losing data
+The dangerous part is that systems often appear operational while silently losing data
 
 ---
 
